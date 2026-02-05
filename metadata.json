@@ -1,0 +1,7 @@
+{
+  "name": "ThéTask BETA",
+  "description": "Um sistema profissional de gerenciamento de tarefas com decomposição de tarefas por IA, análises de produtividade e uma interface Kanban de alto desempenho.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
