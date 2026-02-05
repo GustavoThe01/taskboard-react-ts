@@ -76,7 +76,6 @@ src/
 
 ```bash
 # Instalar dependências
-Instale as dependências:
 npm install
 
 Defina a variável GEMINI_API_KEY no arquivo .env.local
