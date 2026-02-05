@@ -48,6 +48,22 @@
       }
     </style>
     <script>
+      // ====================================================================================
+      // CONFIGURAÇÃO DE AMBIENTE (Simulação de process.env para Browser)
+      // ====================================================================================
+      window.process = {
+        env: {
+          NODE_ENV: 'development',
+          // 👇👇👇 COLE SUA API KEY DO GOOGLE GEMINI AQUI DENTRO DAS ASPAS 👇👇👇
+          API_KEY: '' 
+        }
+      };
+      
+      // Validação visual no console para ajudar o desenvolvedor
+      if (!window.process.env.API_KEY) {
+        console.warn('⚠️ ATENÇÃO: API KEY do Gemini não configurada no index.html. A IA não funcionará.');
+      }
+
       // Initial theme check to prevent flicker
       if (localStorage.getItem('zentask_theme') === 'dark' || (!localStorage.getItem('zentask_theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
@@ -58,13 +74,14 @@
   <script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@19.2.4/",
-    "react": "https://esm.sh/react@19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@19.2.4/",
-    "react-dom": "https://esm.sh/react-dom@19.2.4",
+    "react": "https://esm.sh/react@18.2.0",
+    "react/": "https://esm.sh/react@18.2.0/",
+    "react-dom": "https://esm.sh/react-dom@18.2.0?deps=react@18.2.0",
+    "react-dom/": "https://esm.sh/react-dom@18.2.0/?deps=react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client?deps=react@18.2.0",
     "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
-    "recharts": "https://esm.sh/recharts@^3.7.0",
-    "@hello-pangea/dnd": "https://esm.sh/@hello-pangea/dnd@17.0.0?deps=react@19.2.4,react-dom@19.2.4"
+    "recharts": "https://esm.sh/recharts@2.12.7?deps=react@18.2.0,react-dom@18.2.0",
+    "@hello-pangea/dnd": "https://esm.sh/@hello-pangea/dnd@16.6.0?deps=react@18.2.0,react-dom@18.2.0"
   }
 }
 </script>

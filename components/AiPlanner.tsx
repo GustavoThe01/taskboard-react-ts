@@ -28,8 +28,13 @@ const AiPlanner: React.FC<AiPlannerProps> = ({ onTasksGenerated }) => {
       }));
       onTasksGenerated(fullTasks);
       setGoal('');
-    } catch (err) {
-      alert("Erro ao gerar tarefas. Por favor, tente novamente.");
+    } catch (err: any) {
+      const message = err.message || "Erro desconhecido";
+      if (message.includes("API Key")) {
+        alert("⚠️ CONFIGURAÇÃO NECESSÁRIA:\n\n" + message);
+      } else {
+        alert("Erro ao conectar com a IA. Verifique o console para mais detalhes.\n\nDetalhe: " + message);
+      }
     } finally {
       setIsPlanning(false);
     }
