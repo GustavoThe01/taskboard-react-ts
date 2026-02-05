@@ -82,12 +82,6 @@ npm install
 npm run dev
 ```
 
-A aplicação estará disponível em:
-
-```
-http://localhost:5173
-```
-
 ---
 
 ## 📌 Status do projeto
